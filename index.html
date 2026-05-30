@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Yasso ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+overflow-x:hidden;
+text-align:center;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("hearts-bg.png");
+background-size:cover;
+opacity:.25;
+z-index:-1;
+}
+
+.container{
+padding:30px 20px;
+}
+
+.password-screen{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.heart-box{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:30px;
+width:90%;
+max-width:400px;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.title{
+font-size:35px;
+color:#ff4d6d;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:20px;
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+font-size:18px;
+text-align:center;
+}
+
+button{
+margin-top:15px;
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+font-size:18px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+}
+
+.hidden{
+display:none;
+}
+
+.main-photo{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:50%;
+margin-top:20px;
+border:4px solid #ff4d6d;
+}
+
+.section{
+margin-top:40px;
+}
+
+.memory{
+width:90%;
+max-width:500px;
+border-radius:25px;
+margin:20px auto;
+display:block;
+box-shadow:0 0 20px rgba(255,0,80,.4);
+}
+
+.typewriter{
+font-size:24px;
+line-height:2.1;
+padding:25px;
+white-space:pre-wrap;
+text-align:center;
+}
+
+.final{
+font-size:35px;
+color:#ff4d6d;
+margin:80px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="password-screen" id="login">
+
+<div class="heart-box">
+
+<div class="title">
+Yassine mchimichtii ❤️
+</div>
+
+<div class="subtitle">
+Smhlia akbudti 🥹🫶🏻
+<br>
+O ntmna t9bl hadchi ❤️
+</div>
+
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="unlock()">
+Unlock ❤️
+</button>
+
+</div>
+
+</div>
+
+<div class="container hidden" id="content">
+
+<img src="photo1.jpg" class="main-photo">
+
+<div id="text1" class="typewriter"></div>
+
+<div class="section">
+
+<img src="photo1.jpg" class="memory">
+
+<img src="photo2.jpg" class="memory">
+
+<img src="photo3.jpg" class="memory">
+
+</div>
+
+<div id="text2" class="typewriter"></div>
+
+<div class="final">
+Manstahluch nkhsro ba3diatna ahbibi 🫶🏻
+</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="keyboard">
+<source src="keyboard.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const firstText = `Yassine mchimichtii😭🫶🏻
+
+Yasso
+
+Ana 3arfa bli w93o binatna bzf dlhwyj smhlia hitx 9l9tk o 3sbtk o t9li9tk 3lia ana knhawl nsl7 fiha, aji ntfkro kulxi daz zwin binatna o nbdaw saf7a jdida rah ana bntk hbibtk khask then fia w tsal7 m3aya aw la?..
+
+Nta wlh ghali 3lia bzff ❤️
+
+smhlia akbudti o ntmna t9bl b hadxi🥹🫶🏻`;
+
+const secondText = `Chuf ahbibi hnaya mn ahsen lkharjat lina akbudti o fin bynti hubk lia o ban hubi lik o khditi lia warda o nta ma3arfch bli nta hwa wardti !
+
+O fin hsit bik m3aya o fjnbi o hsiti bia m3ak o kna baghin ba3diatna ❤️
+
+3lx ach tra ta hadxi tbdl ?
+
+Wax ankheliw machakil bsat tbdlna 3la ba3diatna?
+
+Wax atkheli rdan serf ykhelik tb9a tsrf huka fblast mantsal7o o n3wno ba3diatna flhlowa o lmora ha?
+
+Mahma kan lmuchkile wlh khask thafd 3lia o khsni nhafd 3lik.
+
+Ayassine 3fk dir 39lk knbghik o bagha nsl7.
+
+3fk tfkr yamatna zwinin ktr mn lkhybin 😞
+
+3fk aji ntsal7o?`;
+
+function unlock() {
+
+if(document.getElementById("password").value !== "Yasso"){
+alert("Wrong password ❤️");
+return;
+}
+
+document.getElementById("login").style.display="none";
+document.getElementById("content").classList.remove("hidden");
+
+document.getElementById("music").play();
+
+typeText("text1",firstText,40,()=>{
+setTimeout(()=>{
+typeText("text2",secondText,40);
+},1000);
+});
+
+}
+
+function typeText(id,text,speed,callback){
+
+let i=0;
+let target=document.getElementById(id);
+
+let interval=setInterval(()=>{
+
+target.innerHTML+=text.charAt(i);
+
+let sound=document.getElementById("keyboard");
+sound.currentTime=0;
+sound.play();
+
+i++;
+
+if(i>=text.length){
+clearInterval(interval);
+if(callback) callback();
+}
+
+},speed);
+
+}
+</script>
+
+</body>
+</html>
